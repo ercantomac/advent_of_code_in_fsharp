@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mN9qCNdsLmE9DZ/XrU9yTvvL3Za95R/Dt3wXAiQcZAN75+8c0Ren8+QFPu7DmMsiyChFHcCOlz2TWyQN+Ak5Fg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\fb_er\\F#\\Advent of Code\\Day7\\Day7.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\fb_er\\.nuget\\packages\\fsharp.core\\8.0.100\\fsharp.core.8.0.100.nupkg.sha512"
+  ],
+  "logs": []
+}
