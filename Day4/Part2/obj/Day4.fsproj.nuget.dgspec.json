@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\Day4.fsproj": {}
+    "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\Part2\\Day4.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\Day4.fsproj": {
+    "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\Part2\\Day4.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\Day4.fsproj",
+        "projectUniqueName": "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\Part2\\Day4.fsproj",
         "projectName": "Day4",
-        "projectPath": "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\Day4.fsproj",
+        "projectPath": "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\Part2\\Day4.fsproj",
         "packagesPath": "C:\\Users\\fb_er\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\obj\\",
+        "outputPath": "C:\\Users\\fb_er\\F#\\Advent of Code\\Day4\\Part2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fb_er\\AppData\\Roaming\\NuGet\\NuGet.Config"
