@@ -1,6 +1,6 @@
 ﻿open System.IO
 
-let lines = File.ReadAllLines(@"C:\Users\fb_er\F#\Advent of Code\Day3\input.txt")
+let lines = File.ReadAllLines(@"C:\Users\fb_er\F#\Advent of Code\Day3\Part1\input.txt")
 
 // Convert file lines into a list.
 let list = Seq.toList lines

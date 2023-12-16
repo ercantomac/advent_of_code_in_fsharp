@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aQ0pF3piKlz6ktdZPJjAjbV9mLJ8ofxpbNGuQyVC7+EmQftuYSrQ7iGpEmJQk8qBDj+eUS7hzsTO0FDyK68q1A==",
+  "dgSpecHash": "yqtdi0GKx0BqovwgJXdXGTI/+ttp3PCP3uzPrsA6C5kbfBJoMr1kpiNOgheuLw3riwFr0Hve81RS4Lc8+rxl2Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fb_er\\F#\\Advent of Code\\Day3\\Day3.fsproj",
+  "projectFilePath": "C:\\Users\\fb_er\\F#\\Advent of Code\\Day3\\Part1\\Day3.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\fb_er\\.nuget\\packages\\fsharp.core\\8.0.100\\fsharp.core.8.0.100.nupkg.sha512"
   ],
