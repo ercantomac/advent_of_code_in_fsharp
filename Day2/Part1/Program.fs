@@ -1,9 +1,14 @@
 ﻿open System.IO
 
-let lines = File.ReadAllLines(@"C:\Users\fb_er\F#\Advent of Code\Day2\Part1\input.txt")
+let lines =
+    File.ReadAllLines(@"C:\Users\fb_er\F#\Advent of Code\Day2\Part1\input.txt")
 
 // Convert file lines into a list.
 let list = Seq.toList lines
+
+(*
+// IMPERATIVE APPROACH
+
 let mutable result = 0
 
 for i in 0 .. list.Length - 1 do
@@ -57,3 +62,61 @@ for i in 0 .. list.Length - 1 do
         result <- (result + gameNo)
 
 printfn $"{result}"
+ *)
+
+// FUNCTIONAL APPROACH
+
+let testCube cube =
+    let color =
+        cube
+        |> String.filter (fun c -> not (System.Char.IsNumber(c)))
+
+    let quantity =
+        cube
+        |> String.filter (fun c -> System.Char.IsNumber(c))
+        |> int
+
+    if color = "red" && quantity > 12 then
+        printfn "red failed"
+        true
+
+    elif color = "green" && quantity > 13 then
+        printfn "green failed"
+        true
+
+    elif color = "blue" && quantity > 14 then
+        printfn "blue failed"
+        true
+
+    else
+        false
+
+let testSet set =
+    let setTrimmed = set |> String.filter (fun c -> c <> ' ')
+    printfn $"{setTrimmed}"
+    let individualCubes = setTrimmed.Split ','
+
+    individualCubes
+    |> Array.exists (fun cube -> testCube cube)
+
+let mainFunction accumulation (line: string) =
+    printfn $"{line}"
+
+    let j = line.IndexOf(':')
+
+    let gameNo = int ((line[ .. (j - 1) ].Split ' ')[1])
+    printfn $"{gameNo}"
+    let gameSets = line[ (j + 2) .. ].Split ';'
+
+    let gameFailed = gameSets |> Array.exists (fun set -> testSet set)
+
+    if not gameFailed then
+        accumulation + gameNo
+    else
+        accumulation
+
+let answer = list |> List.fold (mainFunction) 0
+
+printfn $"{answer}"
+
+// ANSWER: 2716
