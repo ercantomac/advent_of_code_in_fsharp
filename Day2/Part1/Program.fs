@@ -99,7 +99,7 @@ let testSet set =
     individualCubes
     |> Array.exists (fun cube -> testCube cube)
 
-let mainFunction accumulation (line: string) =
+let mainFunction (accumulation: int) (line: string) =
     printfn $"{line}"
 
     let j = line.IndexOf(':')

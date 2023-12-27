@@ -5,7 +5,7 @@ let lines = File.ReadAllLines(@"C:\Users\fb_er\F#\Advent of Code\Day1\input.txt"
 // Convert file lines into a list.
 let list = Seq.toList lines
 
-(* 
+(*
 // IMPERATIVE APPROACH
 
 let mutable result = 0

@@ -83,7 +83,7 @@ let testSet set color =
     else
         0
 
-let mainFunction accumulation (line: string) =
+let mainFunction (accumulation: int) (line: string) =
     printfn $"{line}"
 
     let j = line.IndexOf(':')
