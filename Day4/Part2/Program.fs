@@ -6,11 +6,9 @@ let lines =
 // Convert file lines into a list.
 let list = Seq.toList lines
 
-let mutable resultSum = 0
-let mutable associativeMap: Map<int, int list> = Map []
+let mutable associativeMap: int list = []
 
-for lineIndex in 0 .. list.Length - 1 do
-    let line = list[lineIndex]
+let getNumberOfMatches (line: string) =
     let lineSplitted = line.Split '|'
     let winningNumbersString = (lineSplitted[ 0 ].Split ':')[1]
     let myNumbersString = lineSplitted[1]
@@ -23,30 +21,35 @@ for lineIndex in 0 .. list.Length - 1 do
         myNumbersString.Split ' '
         |> Array.filter (fun a -> a.Length > 0)
 
-    let mutable numberOfMatches = 0
+    let numberOfMatches =
+        winningNumbers
+        |> Array.filter (fun number -> Array.contains number myNumbers)
+        |> Array.length
 
-    for winningNumber in winningNumbers do
-        if Array.contains winningNumber myNumbers then
-            numberOfMatches <- (numberOfMatches + 1)
+    numberOfMatches
 
-    associativeMap <- (Map.add (lineIndex + 1) [ 1; numberOfMatches ] associativeMap)
+let myFunction (index: int) : int =
+    let cardQuantity =
+        [ 0 .. (index - 1) ]
+        |> List.fold
+            (fun accumulation j ->
+                if (getNumberOfMatches list[j]) >= (index - j) then
+                    accumulation + associativeMap[j]
+                else
+                    accumulation)
+            0
 
-for key in associativeMap.Keys do
-    let cardQuantity = associativeMap[key][0]
-    let numberOfMatches = associativeMap[key][1]
+    associativeMap <-
+        (associativeMap
+         |> List.insertAt index (cardQuantity + 1))
 
-    for i in 1..numberOfMatches do
-        if Map.containsKey (key + i) associativeMap then
-            let tempValue = associativeMap[(key + i)]
+    (cardQuantity + 1)
 
-            associativeMap <-
-                (Map.add
-                    (key + i)
-                    [ (tempValue[0] + cardQuantity)
-                      tempValue[1] ]
-                    associativeMap)
+let answer =
+    list
+    |> List.indexed
+    |> List.fold (fun acc (index, line) -> acc + myFunction index) 0
 
-for mapEntry in associativeMap do
-    resultSum <- (resultSum + mapEntry.Value[0])
+printfn $"{answer}"
 
-printfn $"{resultSum}"
+// ANSWER: 7013204

@@ -1,9 +1,12 @@
 ﻿open System.IO
 
-let lines = File.ReadAllLines(@"C:\Users\fb_er\F#\Advent of Code\Day4\Part1\input.txt")
+let lines =
+    File.ReadAllLines(@"C:\Users\fb_er\F#\Advent of Code\Day4\Part1\input.txt")
 
 // Convert file lines into a list.
 let list = Seq.toList lines
+
+// FUNCTIONAL APPROACH
 
 let pow (number: int) (power: int) : int =
     if power < 0 then
@@ -11,16 +14,13 @@ let pow (number: int) (power: int) : int =
     elif power = 0 then
         1
     else
-        let mutable result = 1
-
-        for i in 1..power do
-            result <- (result * number)
+        let result =
+            [ 1..power ]
+            |> List.fold (fun accumulation n -> accumulation * number) 1
 
         result
 
-let mutable resultSum = 0
-
-for line in list do
+let mainFunction (accumulation: int) (line: string) =
     let lineSplitted = line.Split '|'
     let winningNumbersString = (lineSplitted[ 0 ].Split ':')[1]
     let myNumbersString = lineSplitted[1]
@@ -33,12 +33,15 @@ for line in list do
         myNumbersString.Split ' '
         |> Array.filter (fun a -> a.Length > 0)
 
-    let mutable numberOfMatches = 0
+    let numberOfMatches =
+        winningNumbers
+        |> Array.filter (fun number -> Array.contains number myNumbers)
+        |> Array.length
 
-    for winningNumber in winningNumbers do
-        if Array.contains winningNumber myNumbers then
-            numberOfMatches <- (numberOfMatches + 1)
+    accumulation + (pow 2 (numberOfMatches - 1))
 
-    resultSum <- (resultSum + (pow 2 (numberOfMatches - 1)))
+let answer = list |> List.fold (mainFunction) 0
 
-printfn $"{resultSum}"
+printfn $"{answer}"
+
+// ANSWER: 22488
